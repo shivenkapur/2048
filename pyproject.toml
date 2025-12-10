@@ -1,0 +1,19 @@
+[project]
+name = "project-2048"
+version = "1.0.0"
+dependencies = [
+    "readchar",
+    "openai"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "flake8",
+    "mypy"
+]
+
+[tool.mypy]
+python_version = "3.11"
+exclude = ["build", "myenv", "venv"]
+mypy_path = "src"
