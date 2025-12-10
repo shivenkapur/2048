@@ -31,9 +31,10 @@ Run `mypy .`
 
 ## Play Game
 
-1. Run `python ./src/main.py`
-2. Use the left, down, up or down arrow keys to pla your next move (no need to press enter)
-3. Press a to ask AI for a recommendation. Wait for a bit to a get a response.
+1. [Optional] export your hugging face api key as an env variable for getting AI suggestions `export HUGGING_FACE_KEY={value}`
+2. Run `python ./src/main.py`
+3. Use the left, down, up or down arrow keys to pla your next move (no need to press enter)
+4. Press a to ask AI for a recommendation. Wait for a bit to a get a response.
 
 ## To do
 
