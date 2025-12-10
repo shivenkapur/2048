@@ -4,6 +4,7 @@ from custom_types.board_values import BoardValues
 
 LAST_TILE = 2048
 
+
 class Board:
     def __init__(self):
         self._values: BoardValues = [[None] * 4 for _ in range(4)]
@@ -42,8 +43,9 @@ class Board:
             random.randint(0, len(empty_values) - 1)
         ]
 
-        print(f"Added new value at" 
-              f" row {random_coordinate[0] + 1} column {random_coordinate[1] + 1}\n")
+        print(f"Added new value at"
+              f" row {random_coordinate[0] + 1}"
+              f" column {random_coordinate[1] + 1}\n")
         # 70% chance of getting a 2, 30% chance of getting a 4
         self._values[random_coordinate[0]][random_coordinate[1]] = \
             random.choices([2, 4], weights=[0.7, 0.3], k=1)[0]

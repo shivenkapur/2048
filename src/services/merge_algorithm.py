@@ -40,7 +40,10 @@ class MergeAlgorithm:
 
         return self._board
 
-    def _merge(self, array: List[Optional[int]], reverse: bool) -> List[Optional[int]]:
+    def _merge(
+        self, array: List[Optional[int]],
+        reverse: bool
+    ) -> List[Optional[int]]:
         comparison_index = 0
         current_index = 1
 

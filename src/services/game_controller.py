@@ -11,9 +11,11 @@ class GameController:
 
     def ask_ai(self) -> str:
         response = ask_ai_for_recommendation(self._board.values)
-        if any(member.value == response.upper() for member in Direction):
+        if response and any(
+            member.value == response.upper() for member in Direction
+        ):
             return response.upper()
-        
+
         return "Sorry, our AI is not being able to recommend your next move."
 
     def move(self, direction: Direction, dry_run: bool) -> Tuple[Board, bool]:

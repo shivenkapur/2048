@@ -3,7 +3,6 @@ from readchar import key
 
 from custom_types.direction import Direction
 from custom_types.round_result import RoundResult
-from services.board import Board
 from services.game_controller import GameController
 
 key_to_direction_map: Dict[str, Direction] = {
@@ -12,6 +11,7 @@ key_to_direction_map: Dict[str, Direction] = {
     key.LEFT: Direction.LEFT,
     key.RIGHT: Direction.RIGHT
 }
+
 
 class Game:
     def __init__(self, game_controller: GameController):
@@ -38,5 +38,5 @@ class Game:
             return RoundResult.LOST, None
         elif any_changes:
             board.add_random_value()
-        
+
         return RoundResult.CONTINUE, None
