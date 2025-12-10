@@ -4,16 +4,16 @@
 
 ### Create a new virtual environment
 
-1. Run `python -m venv env`
-2. Run `source myenv/bin/activate`
+1. Run `python -m venv venv`
+2. Run `source venv/bin/activate`
 
 ### Install dev dependencies
 
-pip install -e ".[dev]"
+`pip install -e ".[dev]"`
 
 ### Or Install build only dependencies
 
-pip install .
+`pip install .`
 
 ## Quality Checks
 
