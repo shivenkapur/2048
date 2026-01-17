@@ -55,24 +55,24 @@ class MergeAlgorithm:
             current_cell = transformed_array[current_index]
             comparison_cell = transformed_array[comparison_index]
 
-            if comparison_index >= current_index:
-                comparison_index = current_index
+            if current_cell is None: # current index not a candidate to move but can be passed through
                 current_index += 1
-            elif current_cell is None:
-                current_index += 1
-            elif comparison_cell is None:
+            elif comparison_cell is None: # current cell can be moved
                 transformed_array[comparison_index] = current_cell
                 transformed_array[current_index] = None
                 current_index += 1
                 self._changes = True
-            elif comparison_cell == current_cell:
+            elif comparison_cell == current_cell: # current cell can be moved and is equal to comparison
                 transformed_array[comparison_index] = current_cell * 2
                 transformed_array[current_index] = None
-                comparison_index += 1
                 current_index += 1
                 self._changes = True
-            else:
+
+                comparison_index += 1 # comparison cell can no longer be used
+            else: # current cell can be moved but comparison cell is a different value and not None
                 comparison_index += 1
+
+                if comparison_index == current_index: current_index += 1
 
         if reverse:
             return transformed_array[::-1]

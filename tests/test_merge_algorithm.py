@@ -5,9 +5,8 @@ from services.merge_algorithm import MergeAlgorithm
 
 def _get_board_values_with_row(row):
     return [
-        row,
-        [None, None, None, None] * 3
-    ]
+        row
+    ] + [[None, None, None, None]] * 3
 
 class TestMergeAlgorithm(unittest.TestCase):
     def test_move_left_occupy_empty_spot(self):
@@ -94,6 +93,26 @@ class TestMergeAlgorithm(unittest.TestCase):
         board = Board()
         board.values = _get_board_values_with_row(
             [2, None, None, 2]
+        )
+
+        merge_algorithm = MergeAlgorithm(board, dry_run=False)
+        latest_board = merge_algorithm.merge_horizontal(
+            reverse=False
+        )
+        actual = latest_board.values
+
+        expected = _get_board_values_with_row(
+            [4, None, None, None]
+        )
+
+        self.assertEqual(
+            expected, actual
+        )
+
+    def test_single_column_combine_with_third_spot_used_for_merge(self):
+        board = Board()
+        board.values = _get_board_values_with_row(
+            [None, 2, None, 2]
         )
 
         merge_algorithm = MergeAlgorithm(board, dry_run=False)
